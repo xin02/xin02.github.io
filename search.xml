@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>这是一篇测试文章</title>
-    <url>/2020/05/19/5.19/</url>
-    <content><![CDATA[<p>测试</p>
-<a id="more"></a>
-
-<p><img src="/images/54785d2ecb0034f8c30155850aab53bc.jpeg" alt="54785d2ecb0034f8c30155850aab53bc"></p>
-]]></content>
-      <categories>
-        <category>CTF</category>
-      </categories>
-      <tags>
-        <tag>CTF</tag>
-        <tag>WEB</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ThinkPHP 5.X远程命令执行漏洞</title>
     <url>/2020/05/19/ThinkPHP%205.X%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E/</url>
     <content><![CDATA[<p>利用system函数远程命令执行</p>
