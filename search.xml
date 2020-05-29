@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Windbg !peb：error 3 InitTypeRead解决方案</title>
+    <url>/2020/05/29/Windbg%20!peb%EF%BC%9Aerror%203%20InitTypeRead/</url>
+    <content><![CDATA[<p>今天在使用windbg时，在命令行输入!peb时报错<br>解决方案如下<br><img src="https://img-blog.csdnimg.cn/20200529171311145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<a id="more"></a>
+<p>系统变量中创建一个名为 _NT_SYMBOL_PATH,值为:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">SRV*c:\mysymbol* http://msdl.microsoft.com/download/symbols</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>疑难杂症</category>
+      </categories>
+      <tags>
+        <tag>环境</tag>
+        <tag>疑难杂症</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IDA调试MBR切换16位模式(IDA 16-bit mode)</title>
+    <url>/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/</url>
+    <content><![CDATA[<p>IDA调试MBR切换到16位模式（IDA 16-bit mode）<br>按下ALT+S<br><img src="https://img-blog.csdnimg.cn/20200528185910697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>改为16-bit即可</p>
+]]></content>
+      <categories>
+        <category>疑难杂症</category>
+      </categories>
+      <tags>
+        <tag>环境</tag>
+        <tag>疑难杂症</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>HFS远程命令执行漏洞复现</title>
-    <url>/2020/05/25/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</url>
+    <url>/2020/05/27/HFS%E8%BF%9C%E7%A8%8B%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</url>
     <content><![CDATA[<p>漏洞程序下载地址:<a href="https://lanzous.com/id2vsih" target="_blank" rel="noopener">Http File Server</a></p>
 <p><strong>这里说一下，在Windows server 2003中复现时，我直接使用Administrator用户登录，然后复现，未出现权限问题。再Windows 10中尝试复现时发现权限不足，需要以管理员权限执行漏洞程序。</strong></p>
 <p>运行程序截图如下<br><img src="https://img-blog.csdnimg.cn/20200528140551471.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
@@ -25,6 +53,21 @@
       </categories>
       <tags>
         <tag>WEB</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Sublime Text 3激活码</title>
+    <url>/2020/05/26/Sublime%20Text%203%E6%BF%80%E6%B4%BB%E7%A0%81/</url>
+    <content><![CDATA[<p>Sublime Text 3激活码 2020.5.25测试可用<br><img src="https://img-blog.csdnimg.cn/20200329100142425.png" alt="2020.5.25测试可用"></p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Member J2TeaM</span><br><span class="line">Single User License</span><br><span class="line">EA7E-1011316</span><br><span class="line">D7DA350E 1B8B0760 972F8B60 F3E64036</span><br><span class="line">B9B4E234 F356F38F 0AD1E3B7 0E9C5FAD</span><br><span class="line">FA0A2ABE 25F65BD8 D51458E5 3923CE80</span><br><span class="line">87428428 79079A01 AA69F319 A1AF29A4</span><br><span class="line">A684C2DC 0B1583D4 19CBD290 217618CD</span><br><span class="line">5653E0A0 BACE3948 BB2EE45E 422D2C87</span><br><span class="line">DD9AF44B 99C49590 D2DBDEE1 75860FD2</span><br><span class="line">8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>工具</category>
+      </categories>
+      <tags>
+        <tag>工具</tag>
+        <tag>Sublime Text 3</tag>
       </tags>
   </entry>
   <entry>
@@ -58,21 +101,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Sublime Text 3激活码</title>
-    <url>/2020/05/25/Sublime%20Text%203%E6%BF%80%E6%B4%BB%E7%A0%81/</url>
-    <content><![CDATA[<p>Sublime Text 3激活码 2020.5.25测试可用<br><img src="https://img-blog.csdnimg.cn/20200329100142425.png" alt="2020.5.25测试可用"></p>
-<a id="more"></a>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Member J2TeaM</span><br><span class="line">Single User License</span><br><span class="line">EA7E-1011316</span><br><span class="line">D7DA350E 1B8B0760 972F8B60 F3E64036</span><br><span class="line">B9B4E234 F356F38F 0AD1E3B7 0E9C5FAD</span><br><span class="line">FA0A2ABE 25F65BD8 D51458E5 3923CE80</span><br><span class="line">87428428 79079A01 AA69F319 A1AF29A4</span><br><span class="line">A684C2DC 0B1583D4 19CBD290 217618CD</span><br><span class="line">5653E0A0 BACE3948 BB2EE45E 422D2C87</span><br><span class="line">DD9AF44B 99C49590 D2DBDEE1 75860FD2</span><br><span class="line">8C8BB2AD B2ECE5A4 EFC08AF2 25A9B864</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>工具</category>
-      </categories>
-      <tags>
-        <tag>工具</tag>
-        <tag>Sublime Text 3</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ubuntu 18.04缺少libstdc++.so.6共享库解决方案</title>
     <url>/2020/05/25/Ubuntu%2018.04%E7%BC%BA%E5%B0%91libstdc++.so.6%E5%85%B1%E4%BA%AB%E5%BA%93%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
     <content><![CDATA[<h3 id="报错信息"><a href="#报错信息" class="headerlink" title="报错信息:"></a>报错信息:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">.&#x2F;linux_server: error while loading shared libraries: libstdc++.so.6: cannot open shared object file: No such file or directory</span><br></pre></td></tr></table></figure>
@@ -103,8 +131,8 @@
         <category>CTF</category>
       </categories>
       <tags>
-        <tag>WEB</tag>
         <tag>CTF</tag>
+        <tag>WEB</tag>
       </tags>
   </entry>
 </search>
