@@ -17,13 +17,13 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"int80.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"www.int80.top","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="IDA调试MBR切换到16位模式（IDA 16-bit mode）按下ALT+S改为16-bit即可">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IDA调试MBR切换16位模式(IDA 16-bit mode)">
-<meta property="og:url" content="int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/index.html">
+<meta property="og:url" content="https://www.int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/index.html">
 <meta property="og:site_name" content="夏了茶糜">
 <meta property="og:description" content="IDA调试MBR切换到16位模式（IDA 16-bit mode）按下ALT+S改为16-bit即可">
 <meta property="og:locale" content="zh_CN">
@@ -36,7 +36,7 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20200528185910697.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3Fpbjk4MDA=,size_16,color_FFFFFF,t_70">
 
-<link rel="canonical" href="int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/">
+<link rel="canonical" href="https://www.int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/">
 
 
 <script id="page-configurations">
@@ -202,7 +202,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/">
+    <link itemprop="mainEntityOfPage" href="https://www.int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/54785d2ecb0034f8c30155850aab53bc.jpeg">
@@ -286,8 +286,8 @@
   <p><span>文章作者:</span><a href="/" title="访问 夏了茶糜 的个人博客">夏了茶糜</a></p>
   <p><span>发布时间:</span>2020年05月28日 - 00:05</p>
   <p><span>最后更新:</span>2020年05月29日 - 17:05</p>
-  <p><span>原始链接:</span><a href="/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/" title="IDA调试MBR切换16位模式(IDA 16-bit mode)">int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/</a>
-    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/"  aria-label="复制成功！"></i></span>
+  <p><span>原始链接:</span><a href="/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/" title="IDA调试MBR切换16位模式(IDA 16-bit mode)">https://www.int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/</a>
+    <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://www.int80.top/2020/05/28/IDA%E8%B0%83%E8%AF%95MBR%E5%88%87%E6%8D%A216%E4%BD%8D%E6%A8%A1%E5%BC%8F%EF%BC%88IDA%2016-bit%20mode%EF%BC%89/"  aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> 转载请保留原文链接及作者。</p>  
 </div>
